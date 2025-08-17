@@ -22,14 +22,14 @@ export class ProductComponent {
   //   this.cartservice.addToCartService(product);
   // }
 
-  // filteredProduct = computed(() => {
-  //   const item = this.searchItem().toLowerCase().trim();
-  //   if (!item) return this.productData();
-  //   return this.productData().filter(pro =>
-  //     pro.category.toLowerCase().includes(item) ||
-  //     pro.title.toLowerCase().includes(item)
-  //   );
-  // });
+  filteredProduct = computed(() => {
+    const item = this.searchItem().toLowerCase().trim();
+    if (!item) return this.productData();
+    return this.productData().filter(pro =>
+      pro.category.toLowerCase().includes(item) ||
+      pro.title.toLowerCase().includes(item)
+    );
+  });
 
 
 }

@@ -6,7 +6,7 @@
 <div class="main-div">
     <h1> Our Collections </h1>
     <div class="card-container">
-        @for (productItem of productData(); track productItem) {
+        @for (productItem of filteredProduct(); track productItem) {
         <div class="card">
             <img [src]="productItem.image" alt="Product Image" class="product-image">
             <p>{{productItem.title}}</p>
