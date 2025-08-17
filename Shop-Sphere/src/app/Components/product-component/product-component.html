@@ -1,0 +1,18 @@
+<div class="search-input">
+    <input type="text" placeholder="search for Fav" #searchProduct [value]="searchItem()"
+        (input)="searchItem.set(searchProduct.value)">
+</div>
+
+<div class="main-div">
+    <h1> Our Collections </h1>
+    <div class="card-container">
+        @for (productItem of productData(); track productItem) {
+        <div class="card">
+            <img [src]="productItem.image" alt="Product Image" class="product-image">
+            <p>{{productItem.title}}</p>
+            <p> €{{productItem.price}}</p>
+            <button class="card-button"> Add to cart </button>
+        </div>
+        }
+    </div>
+</div>
