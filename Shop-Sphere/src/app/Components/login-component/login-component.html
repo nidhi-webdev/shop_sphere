@@ -1,11 +1,19 @@
 <div class="login-container">
-  <form class="login-form">
+  <form class="login-form" [formGroup] = "myForm" (ngSubmit)="submit()">
     <img src="assets/logo.png" alt="Brand logo">
     <h4>Sign in or create account</h4>
     <label for="email">Enter Your email</label>
-    <input id="email" type="text">
+    <input id="email" type="text" formControlName="email">
+    @if (!myForm.controls.email.valid && myForm.controls.email.touched)  {
+        <div> Email is required </div>
+    }
+
     <label for="password">Password</label>
-    <input id="password" type="password">
-    <button type="submit">Continue</button>
+    <input id="password" type="password" formControlName="password">
+    @if (!myForm.controls.password.valid && myForm.controls.password.touched) {
+        <div> Password is required </div>
+    }
+
+    <button type="text">Continue</button>
   </form>
 </div>
