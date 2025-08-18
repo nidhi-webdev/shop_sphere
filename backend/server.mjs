@@ -1,5 +1,5 @@
 import express from 'express';
-import {fileURLToPath} from 'url';
+import { fileURLToPath } from 'url';
 import path from 'path';
 import { readFile } from 'fs/promises';
 import cors from 'cors';
@@ -7,7 +7,6 @@ import cors from 'cors';
 
 
 const app = express();
-// const cors = cors();
 const port = 3000;
 
 //define the cros option 
@@ -17,6 +16,8 @@ const corsOption = {
 }
 
 app.use(cors(corsOption));
+//
+app.use(express.json());
 
 const _filePath = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(_filePath);
@@ -28,10 +29,30 @@ app.get('/products', async (req, res) => {
         const products = JSON.parse(data);
         res.json(products);
     } catch (err) {
-        res.status(500).json({error: 'could not read products file'
+        res.status(500).json({
+            error: 'could not read products file'
         });
     }
 })
+
+
+app.post('/login', async (req, res) => {
+    const { email, password } = req.body;
+    try {
+        const loginData = await readFile(path.join(__dirname, 'login.json'), 'utf-8');
+        const login = JSON.parse(loginData);
+        const user = login.find(u => u.email === email && u.password === password);
+        if (user) {
+            res.json({ success: true, message: 'login Successful' });
+        } else {
+            res.status(401).json({ success: false, message: 'invalid Email password' });
+        }
+    }
+    catch (err) {
+        res.status(500).json({ error: 'could not get login file' });
+    }
+})
+
 
 app.listen(port, () => {
     console.log(`server is running on port number ${port}`);
