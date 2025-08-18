@@ -17,25 +17,25 @@ export class LoginComponent {
     password: new FormControl('', Validators.required)
   })
 
-  constructor(private loginservice: LoginService) {}
+  constructor(private loginservice: LoginService) { }
 
 
   submit() {
-  if(this.myForm.valid) {
-    const userBody: LOGIN = {
-      id: 0,
-      email: this.myForm.value.email || '',
-      password: this.myForm.value.password || '',
-    };
+    if (this.myForm.valid) {
+      const userBody: LOGIN = {
+        id: 0,
+        email: this.myForm.value.email || '',
+        password: this.myForm.value.password || '',
+      };
 
-    this.loginservice.userLogin(userBody).subscribe({
-      next: (res) => {
-        alert("login Successful")
-      } ,
-      error: (err) => {
-        alert("Invalid User")
-      }
-    })
-  }
+      this.loginservice.userLogin(userBody).subscribe({
+        next: (res) => {
+          alert("login Successful")
+        },
+        error: (err) => {
+          alert("Invalid User")
+        }
+      })
+    }
   }
 }
