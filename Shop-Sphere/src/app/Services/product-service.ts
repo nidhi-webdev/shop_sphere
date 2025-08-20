@@ -7,11 +7,11 @@ import { PRODUCTS } from '../Models/products.model';
   providedIn: 'root'
 })
 export class ProductService {
-  
+
   product!: Signal<PRODUCTS[]>
   apiUrl: string = "http://localhost:3000/products";
 
   constructor(private http: HttpClient) {
-    this.product = toSignal(this.http.get<PRODUCTS[]>(this.apiUrl), {initialValue: []});
+    this.product = toSignal(this.http.get<PRODUCTS[]>(this.apiUrl), { initialValue: [] });
   }
 }
