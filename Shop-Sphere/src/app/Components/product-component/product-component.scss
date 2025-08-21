@@ -11,7 +11,7 @@ nav {
   h4 {
     margin: 0;
   }
-  img {
+  .logo {
     width: 7rem;
   }
   .nav-right {
@@ -19,6 +19,17 @@ nav {
   align-items: center;
   gap: 1rem;
 }
+.cart-img {
+  width: 2rem;
+  background: none;
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+}
+}
+
+.main-div {
+  padding: 2rem 3rem 2rem 3rem;
 }
 
 .card-container {

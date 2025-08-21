@@ -47,5 +47,8 @@ export class ProductComponent implements OnInit {
   localStorage.removeItem('loginUser');
   }
 
+  shoppingBasket() {
+  this.route.navigate(['/shoppingBasket'])
+  }
 
 }
