@@ -22,7 +22,7 @@
             <img [src]="productItem.image" alt="Product Image" class="product-image">
             <p>{{productItem.title}}</p>
             <p> €{{productItem.price}}</p>
-            <button class="card-button"> Add to cart </button>
+            <button class="card-button" (click)="sendingProductData(productItem)"> Add to cart </button>
         </div>
         }
     </div>

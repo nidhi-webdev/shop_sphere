@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { CartService } from '../../Services/cart-service';
+import { PRODUCTS } from '../../Models/products.model';
+
 
 @Component({
   selector: 'app-shopping-basket-component',
@@ -7,5 +10,9 @@ import { Component } from '@angular/core';
   styleUrl: './shopping-basket-component.scss'
 })
 export class ShoppingBasketComponent {
-
+  cartItem: any;
+  
+  constructor(private cartservice: CartService) {
+    this.cartItem = this.cartservice._cartItem();
+  }
 }
