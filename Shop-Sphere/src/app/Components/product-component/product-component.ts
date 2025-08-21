@@ -22,10 +22,6 @@ export class ProductComponent implements OnInit {
     this.productData = this.productservice.product;
   }
 
-  // addTocart(product: PRODUCTS) {
-  //   this.cartservice.addToCartService(product);
-  // }
-
   filteredProduct = computed(() => {
     const item = this.searchItem().toLowerCase().trim();
     if (!item) return this.productData();
