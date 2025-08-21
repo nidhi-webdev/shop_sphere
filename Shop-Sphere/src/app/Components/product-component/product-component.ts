@@ -1,6 +1,7 @@
 import { Component, computed, OnInit, signal, Signal } from '@angular/core';
 import { PRODUCTS } from '../../Models/products.model';
 import { ProductService } from '../../Services/product-service';
+import { Router } from '@angular/router';
 
 
 
@@ -15,7 +16,9 @@ export class ProductComponent implements OnInit {
   searchItem = signal('');
   userEmail: string = '';
 
-  constructor(private productservice: ProductService) {
+  constructor(private productservice: ProductService,
+    private route: Router
+  ) {
     this.productData = this.productservice.product;
   }
 
@@ -41,6 +44,11 @@ export class ProductComponent implements OnInit {
       }
     }
 
+  }
+
+  logOut() {
+   this.route.navigate(['/login']);
+  localStorage.removeItem('loginUser');
   }
 
 

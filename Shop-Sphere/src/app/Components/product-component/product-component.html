@@ -1,8 +1,15 @@
+<nav>
+    <img src="assets/logo.png" alt="Brand logo">
+  <div class="nav-right">
+        <h4>Welcome, {{userEmail}}</h4>
+        <button (click)="logOut()">Log Out</button>
+    </div>
+</nav>
 <div class="search-input">
     <input type="text" placeholder="search for Fav" #searchProduct [value]="searchItem()"
         (input)="searchItem.set(searchProduct.value)">
 </div>
-<p> Welcome, {{userEmail}} </p>
+
 
 <div class="main-div">
     <h1> Our Collections </h1>
