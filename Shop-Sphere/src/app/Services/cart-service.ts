@@ -9,5 +9,6 @@ public _cartItem = signal<PRODUCTS[]>([]);
 
   addToCart(product: PRODUCTS) {
     this._cartItem.update(items => [...items, product]);
+    // this._cartItem.
   }
 }
