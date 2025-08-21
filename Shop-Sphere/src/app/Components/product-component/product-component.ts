@@ -1,4 +1,4 @@
-import { Component, computed, signal, Signal } from '@angular/core';
+import { Component, computed, OnInit, signal, Signal } from '@angular/core';
 import { PRODUCTS } from '../../Models/products.model';
 import { ProductService } from '../../Services/product-service';
 
@@ -10,9 +10,10 @@ import { ProductService } from '../../Services/product-service';
   templateUrl: './product-component.html',
   styleUrl: './product-component.scss'
 })
-export class ProductComponent {
+export class ProductComponent implements OnInit{
   productData: Signal<PRODUCTS[]>
   searchItem = signal('');
+  userEmail: string = '';
 
   constructor(private productservice: ProductService) {
     this.productData = this.productservice.product;
@@ -30,6 +31,17 @@ export class ProductComponent {
       pro.title.toLowerCase().includes(item)
     );
   });
+
+  ngOnInit() {
+  if(typeof window !== 'undefined') {
+    const user = localStorage.getItem('loginUser');
+    if(user) {
+ const userObj = JSON.parse(user);
+ this.userEmail = userObj.email || '';
+  }
+  }
+  
+  }
 
 
 }

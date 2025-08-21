@@ -5,6 +5,7 @@ import { LoginService } from '../../Services/login-service';
 import { Router } from '@angular/router';
 
 
+
 @Component({
   selector: 'app-login-component',
   imports: [ReactiveFormsModule],
@@ -35,6 +36,10 @@ export class LoginComponent {
         next: (res) => {
           alert("login Successful")
           this.route.navigate(['/products'])
+          if(typeof window !== 'undefined') {
+            localStorage.setItem("loginUser", JSON.stringify(userBody));
+            console.log();
+          }
         },
         error: (err) => {
           alert("Invalid User")
