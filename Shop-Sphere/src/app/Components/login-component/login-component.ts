@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { LOGIN } from '../../Models/login.model';
 import { LoginService } from '../../Services/login-service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,7 +18,9 @@ export class LoginComponent {
     password: new FormControl('', Validators.required)
   })
 
-  constructor(private loginservice: LoginService) { }
+  constructor(private loginservice: LoginService, 
+    private route: Router
+  ) { }
 
 
   submit() {
@@ -31,6 +34,7 @@ export class LoginComponent {
       this.loginservice.userLogin(userBody).subscribe({
         next: (res) => {
           alert("login Successful")
+          this.route.navigate(['/products'])
         },
         error: (err) => {
           alert("Invalid User")
