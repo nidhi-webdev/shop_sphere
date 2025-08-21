@@ -10,11 +10,6 @@ import { PRODUCTS } from '../../Models/products.model';
   styleUrl: './shopping-basket-component.scss'
 })
 export class ShoppingBasketComponent {
-    cartService: inject(CartService);
-
-  // cartItem: PRODUCTS[];
-  // cartItem = this.CartService._cartItem 
-
-  
-
+    cartservice = inject(CartService);
+    cartItem = this.cartservice._cartItem;
 }

@@ -55,6 +55,7 @@ export class ProductComponent implements OnInit {
 
   sendingProductData(product: PRODUCTS) {
    this.cartservice.addToCart(product);
+  //  console.log("From the Product", this.cartservice)
   }
 
 }
