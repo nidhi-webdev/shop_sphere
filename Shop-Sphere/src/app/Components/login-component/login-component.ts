@@ -19,7 +19,7 @@ export class LoginComponent {
     password: new FormControl('', Validators.required)
   })
 
-  constructor(private loginservice: LoginService, 
+  constructor(private loginservice: LoginService,
     private route: Router
   ) { }
 
@@ -36,7 +36,7 @@ export class LoginComponent {
         next: (res) => {
           alert("login Successful")
           this.route.navigate(['/products'])
-          if(typeof window !== 'undefined') {
+          if (typeof window !== 'undefined') {
             localStorage.setItem("loginUser", JSON.stringify(userBody));
             console.log();
           }

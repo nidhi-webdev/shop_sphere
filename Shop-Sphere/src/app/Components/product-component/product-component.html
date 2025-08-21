@@ -2,11 +2,11 @@
     <input type="text" placeholder="search for Fav" #searchProduct [value]="searchItem()"
         (input)="searchItem.set(searchProduct.value)">
 </div>
- <p> Welcome, {{userEmail}} </p>
+<p> Welcome, {{userEmail}} </p>
 
 <div class="main-div">
     <h1> Our Collections </h1>
-  
+
     <div class="card-container">
         @for (productItem of filteredProduct(); track productItem) {
         <div class="card">

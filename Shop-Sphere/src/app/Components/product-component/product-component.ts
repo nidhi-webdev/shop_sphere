@@ -10,7 +10,7 @@ import { ProductService } from '../../Services/product-service';
   templateUrl: './product-component.html',
   styleUrl: './product-component.scss'
 })
-export class ProductComponent implements OnInit{
+export class ProductComponent implements OnInit {
   productData: Signal<PRODUCTS[]>
   searchItem = signal('');
   userEmail: string = '';
@@ -33,14 +33,14 @@ export class ProductComponent implements OnInit{
   });
 
   ngOnInit() {
-  if(typeof window !== 'undefined') {
-    const user = localStorage.getItem('loginUser');
-    if(user) {
- const userObj = JSON.parse(user);
- this.userEmail = userObj.email || '';
-  }
-  }
-  
+    if (typeof window !== 'undefined') {
+      const user = localStorage.getItem('loginUser');
+      if (user) {
+        const userObj = JSON.parse(user);
+        this.userEmail = userObj.email || '';
+      }
+    }
+
   }
 
 
