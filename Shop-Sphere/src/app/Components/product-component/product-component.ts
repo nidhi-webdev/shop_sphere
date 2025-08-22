@@ -17,7 +17,7 @@ export class ProductComponent implements OnInit {
   searchItem = signal('');
   userEmail: string = '';
   count = 0;
- 
+
 
   constructor(private productservice: ProductService,
     private route: Router, private cartservice: CartService
@@ -46,18 +46,18 @@ export class ProductComponent implements OnInit {
   }
 
   logOut() {
-   this.route.navigate(['/login']);
-  localStorage.removeItem('loginUser');
+    this.route.navigate(['/login']);
+    localStorage.removeItem('loginUser');
   }
 
   shoppingBasket() {
-  this.route.navigate(['/shoppingBasket'])
+    this.route.navigate(['/shoppingBasket'])
   }
 
   sendingProductData(product: PRODUCTS) {
     this.count++;
-   this.cartservice.addToCart(product);
-  //  console.log("From the Product", this.cartservice)
+    this.cartservice.addToCart(product);
+    //  console.log("From the Product", this.cartservice)
   }
 
 }

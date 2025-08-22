@@ -5,8 +5,10 @@
             (input)="searchItem.set(searchProduct.value)">
     </div>
     <div class="nav-right">
-        <img src="assets/cart.png" class="cart-img" (click)="shoppingBasket()">
-        {{count}}
+      <div class="cart-container" (click)="shoppingBasket()">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="cart-count"> {{count}} </span>
+        </div>
         <h4>Welcome, {{userEmail}}</h4>
         <button (click)="logOut()">Log Out</button>
     </div>
