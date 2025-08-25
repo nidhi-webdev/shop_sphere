@@ -1,8 +1,12 @@
-<p>shopping-basket-component works!</p>
 
-
+@if (cartItem().length === 0) {
+<div>
+    There is no item in the Basket.
+</div>
+} @else {
 @for (item of cartItem(); track item.id) {
-   <div>
+<div>
     {{item.title}}
-    </div>
+</div>
+}
 }
