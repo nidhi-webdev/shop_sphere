@@ -1,22 +1,48 @@
 <nav>
     <img class="logo" src="assets/logo.png" alt="Brand logo">
     <div class="nav-right">
-
         <h4>Welcome, {{userEmail}}</h4>
         <button (click)="logOut()">Log Out</button>
     </div>
 </nav>
-@if (cartItem().length === 0) {
-<div>
-    There is no item in the Basket.
+<div class="basket-main">
+  <div class="basket-wrapper">
+    <h1>Shopping Basket</h1>
+    @if (cartItem().length === 0) {
+      <div class="empty-basket">
+        There is no item in the Basket.
+      </div>
+    } @else {
+      <div class="basket-list">
+        @for (item of cartItem(); track item.id) {
+          <div class="basket-item">
+            <div class="basket-item-img">
+              <img [src]="item.image" alt="Product Image" />
+            </div>
+            <div class="basket-item-details">
+              <div class="basket-item-title">{{ item.title }}</div>
+              <div class="basket-item-actions">
+                <button class="basket-btn"><i class="fa fa-trash"></i></button>
+                <button class="basket-btn">-</button>
+                <span class="basket-qty">1</span>
+                <button class="basket-btn">+</button>
+                <span> Delete </span>
+                <span> Share </span>
+              </div>
+            </div>
+            <div class="basket-item-price">
+              <span>€{{ item.price }}</span>
+            </div>
+          </div>
+        }
+      </div>
+    }
+  </div>
+  <div class="basket-summary">
+    <div class="basket-summary-title">
+      Subtotal ({{ cartItem().length }} items):
+      <!-- <span class="basket-summary-price">€{{ subtotal }}</span> -->
+    </div>
+    <button class="checkout-btn">Proceed to Checkout</button>
+  </div>
 </div>
-} @else {
-@for (item of cartItem(); track item.id) {
-<div>
-    <img [src]="item.image" alt="Product Image" class="product-image">
-    <!-- {{item.image}} -->
-    {{item.title}}
-
-</div>
-}
-}
