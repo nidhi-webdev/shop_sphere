@@ -22,11 +22,10 @@
             <div class="basket-item-details">
               <div class="basket-item-title">{{ item.title }}</div>
               <div class="basket-item-actions">
-                <button class="basket-btn"><i class="fa fa-trash"></i></button>
+                <button class="basket-btn" (click)="deleteProduct(item.id)"><i class="fa fa-trash"></i></button>
                 <button class="basket-btn">-</button>
                 <span class="basket-qty">1</span>
                 <button class="basket-btn">+</button>
-                <span> Delete </span>
                 <span> Share </span>
               </div>
             </div>

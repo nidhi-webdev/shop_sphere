@@ -35,4 +35,8 @@ export class ShoppingBasketComponent {
   backtoProduct() {
     this.route.navigate(['/products'])
   }
+
+  deleteProduct(id?: number) {
+    this.cartItem.update(items => items.filter(item => item.id !== id));
+  }
 }
