@@ -31,4 +31,8 @@ export class ShoppingBasketComponent {
     this.route.navigate(['/login']);
     localStorage.removeItem('loginUser');
   }
+
+  backtoProduct() {
+    this.route.navigate(['/products'])
+  }
 }
