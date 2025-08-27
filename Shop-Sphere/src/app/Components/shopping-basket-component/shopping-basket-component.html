@@ -14,23 +14,23 @@
       </div>
     } @else {
       <div class="basket-list">
-        @for (item of cartItem(); track item.id) {
+        @for (item of cartItem(); track item.product.id) {
           <div class="basket-item">
             <div class="basket-item-img">
-              <img [src]="item.image" alt="Product Image" />
+              <img [src]="item.product.image" alt="Product Image" />
             </div>
             <div class="basket-item-details">
-              <div class="basket-item-title">{{ item.title }}</div>
+              <div class="basket-item-title">{{ item.product.title }}</div>
               <div class="basket-item-actions">
-                <button class="basket-btn" (click)="deleteProduct(item.id)"><i class="fa fa-trash"></i></button>
+                <button class="basket-btn" (click)="deleteProduct(item.product.id)"><i class="fa fa-trash"></i></button>
                 <button class="basket-btn">-</button>
-                <span class="basket-qty">1</span>
-                <button class="basket-btn">+</button>
+                <span class="basket-qty"> {{item.quantity}} </span>
+                <button class="basket-btn" (click)="increaseProduct(item.product)">+</button>
                 <span> Share </span>
               </div>
             </div>
             <div class="basket-item-price">
-              <span>€{{ item.price }}</span>
+              <span>€{{ item.product.price }}</span>
             </div>
           </div>
         }

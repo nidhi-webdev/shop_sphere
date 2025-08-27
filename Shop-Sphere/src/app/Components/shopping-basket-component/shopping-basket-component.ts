@@ -4,6 +4,8 @@ import { PRODUCTS } from '../../Models/products.model';
 import { Router } from '@angular/router';
 
 
+
+
 @Component({
   selector: 'app-shopping-basket-component',
   imports: [],
@@ -15,6 +17,7 @@ export class ShoppingBasketComponent {
   route = inject(Router)
   cartItem = this.cartservice._cartItem;
   userEmail: string = '';
+ 
 
   ngOnInit() {
     if (typeof window !== 'undefined') {
@@ -37,6 +40,14 @@ export class ShoppingBasketComponent {
   }
 
   deleteProduct(id?: number) {
-    this.cartItem.update(items => items.filter(item => item.id !== id));
+    this.cartItem.update(items => items.filter(item => item.product.id !== id));
   }
+
+increaseProduct(product: PRODUCTS ) {
+  this.cartItem.update(items => items.map(item => 
+    item.product.id === product.id
+      ? { ...item, quantity: (item.quantity || 1) + 1 }
+      : item
+  ));
+}
 }
