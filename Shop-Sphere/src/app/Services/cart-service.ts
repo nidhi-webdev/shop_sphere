@@ -49,4 +49,12 @@ export class CartService {
     this.saveCartToStorage();
   }
 
+  decreaseProduct(product: PRODUCTS) {
+    this._cartItem.update(items => items.map(item => 
+     item.product.id === product.id ? { ...item, quantity: item.quantity - 1} : item
+    ).filter(item => item .quantity > 0)
+  );
+    this.saveCartToStorage();
+  }
+
 }

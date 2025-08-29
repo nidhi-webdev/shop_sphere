@@ -48,6 +48,10 @@ export class ShoppingBasketComponent {
   this.cartservice.increaseProduct(product);
  }
 
+ decreaseProductInCart(product: PRODUCTS) {
+  this.cartservice.decreaseProduct(product);
+ }
+
  subTotalItem() {
   return this.cartItem().reduce((sum, item) => sum + item.quantity, 0)
  };

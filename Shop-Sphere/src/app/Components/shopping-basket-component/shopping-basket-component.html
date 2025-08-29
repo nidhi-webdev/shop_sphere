@@ -28,7 +28,7 @@
               <div class="basket-item-title">{{ item.product.title }}</div>
               <div class="basket-item-actions">
                 <button class="basket-btn" (click)="deteleProductFrormCart(item.product.id!)"><i class="fa fa-trash"></i></button>
-                <button class="basket-btn">-</button>
+                <button class="basket-btn" (click)="decreaseProductInCart(item.product)"> - </button>
                 <span class="basket-qty"> {{item.quantity}} </span>
                 <button class="basket-btn" (click)="increaseProductInCart(item.product)">+</button>
                 <span> Share </span>
