@@ -32,9 +32,7 @@ export class CartService {
 
   loadCartFromStorage(): CARTPRODUCT[] {
     const data = localStorage.getItem('cart');
-
     const parsed = data ? JSON.parse(data) as CARTPRODUCT[] : [];
-    console.log('Cart in localStorage (parsed):', parsed);
     return parsed;
   }
 
