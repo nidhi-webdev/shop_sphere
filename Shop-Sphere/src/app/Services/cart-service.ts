@@ -32,8 +32,7 @@ export class CartService {
 
   loadCartFromStorage(): CARTPRODUCT[] {
     const data = localStorage.getItem('cart');
-    const parsed = data ? JSON.parse(data) as CARTPRODUCT[] : [];
-    return parsed;
+    return data ? JSON.parse(data) as CARTPRODUCT[] : [];
   }
 
   deleteProduct(id?: number) {
