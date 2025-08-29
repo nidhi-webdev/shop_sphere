@@ -6,10 +6,12 @@
     </div>
 </nav>
 
-<button class="back-btn"  (click)="backtoProduct()"> Back to Product </button>
+
 
 <div class="basket-main">
   <div class="basket-wrapper">
+      <button class="back-btn"  (click)="backtoProduct()"> Back to Product </button>
+
     <h1>Shopping Basket</h1>
     @if (cartItem().length === 0) {
       <div class="empty-basket">
