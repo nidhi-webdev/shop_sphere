@@ -38,7 +38,6 @@ export class LoginComponent {
           this.route.navigate(['/products'])
           if (typeof window !== 'undefined') {
             localStorage.setItem("loginUser", JSON.stringify(userBody));
-            console.log();
           }
         },
         error: (err) => {

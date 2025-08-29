@@ -22,10 +22,10 @@
             <div class="basket-item-details">
               <div class="basket-item-title">{{ item.product.title }}</div>
               <div class="basket-item-actions">
-                <button class="basket-btn" (click)="deleteProduct(item.product.id)"><i class="fa fa-trash"></i></button>
+                <button class="basket-btn" (click)="deteleProductFrormCart(item.product.id!)"><i class="fa fa-trash"></i></button>
                 <button class="basket-btn">-</button>
                 <span class="basket-qty"> {{item.quantity}} </span>
-                <button class="basket-btn" (click)="increaseProduct(item.product)">+</button>
+                <button class="basket-btn" (click)="increaseProductInCart(item.product)">+</button>
                 <span> Share </span>
               </div>
             </div>
@@ -39,7 +39,7 @@
   </div>
   <div class="basket-summary">
     <div class="basket-summary-title">
-      Subtotal ({{ cartItem().length }} items)
+      Subtotal ({{ cartItem().length  }} items)
       <!-- <span class="basket-summary-price">€{{ subtotal }}</span> -->
     </div>
     <button class="checkout-btn">Proceed to Checkout</button>

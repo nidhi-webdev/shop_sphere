@@ -39,15 +39,15 @@ export class ShoppingBasketComponent {
     this.route.navigate(['/products'])
   }
 
-  deleteProduct(id?: number) {
-    this.cartItem.update(items => items.filter(item => item.product.id !== id));
+ deteleProductFrormCart(id: number) {
+  if(id !== undefined) {
+    this.cartservice.deleteProduct(id);
   }
+ }
 
-increaseProduct(product: PRODUCTS ) {
-  this.cartItem.update(items => items.map(item => 
-    item.product.id === product.id
-      ? { ...item, quantity: (item.quantity || 1) + 1 }
-      : item
-  ));
-}
+ increaseProductInCart(product: PRODUCTS) {
+  this.cartservice.increaseProduct(product);
+ }
+
+
 }
