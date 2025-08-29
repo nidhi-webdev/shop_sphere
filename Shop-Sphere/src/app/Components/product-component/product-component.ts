@@ -16,7 +16,6 @@ export class ProductComponent implements OnInit {
   productData: Signal<PRODUCTS[]>
   searchItem = signal('');
   userEmail: string = '';
-  count = 0;
 
 
   constructor(private productservice: ProductService,
@@ -55,9 +54,13 @@ export class ProductComponent implements OnInit {
   }
 
   sendingProductData(product: PRODUCTS) {
-    this.count++;
     this.cartservice.addToCart(product);
     //  console.log("From the Product", this.cartservice)
   }
+
+  cartCount = computed(() => 
+    this.cartservice._cartItem().reduce((sum , item) => sum + item.quantity, 0
+    )
+  );
 
 }

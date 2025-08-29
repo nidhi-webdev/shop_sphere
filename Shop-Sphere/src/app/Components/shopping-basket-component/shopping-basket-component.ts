@@ -17,18 +17,17 @@ export class ShoppingBasketComponent {
   route = inject(Router)
   cartItem = this.cartservice._cartItem;
   userEmail: string = '';
- 
 
-  ngOnInit() {
-    if (typeof window !== 'undefined') {
+  constructor() {
+  if (typeof window !== 'undefined') {
       const user = localStorage.getItem('loginUser');
       if (user) {
         const userObj = JSON.parse(user);
         this.userEmail = userObj.email || '';
       }
     }
+ } 
 
-  }
 
   logOut() {
     this.route.navigate(['/login']);

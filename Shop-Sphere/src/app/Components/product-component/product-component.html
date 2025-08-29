@@ -7,7 +7,7 @@
     <div class="nav-right">
         <div class="cart-container" (click)="shoppingBasket()">
             <i class="fa-solid fa-cart-shopping"></i>
-            <span class="cart-count"> {{count}} </span>
+            <span class="cart-count"> {{cartCount()}} </span>
         </div>
         <h4>Welcome, {{userEmail}}</h4>
         <button (click)="logOut()">Log Out</button>
