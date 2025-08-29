@@ -58,8 +58,8 @@ export class ProductComponent implements OnInit {
     //  console.log("From the Product", this.cartservice)
   }
 
-  cartCount = computed(() => 
-    this.cartservice._cartItem().reduce((sum , item) => sum + item.quantity, 0
+  cartCount = computed(() =>
+    this.cartservice._cartItem().reduce((sum, item) => sum + item.quantity, 0
     )
   );
 
