@@ -44,8 +44,7 @@
   </div>
   <div class="basket-summary">
     <div class="basket-summary-title">
-      Subtotal ({{ subTotal() }} items)
-      <!-- <span class="basket-summary-price">€{{ subtotal }}</span> -->
+      Subtotal ({{ subTotalItem() }} items): €{{ subTotalPrice().toFixed(2) }}
     </div>
     <button class="checkout-btn">Proceed to Checkout</button>
   </div>
