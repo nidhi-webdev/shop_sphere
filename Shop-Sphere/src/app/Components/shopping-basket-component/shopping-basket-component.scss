@@ -178,6 +178,19 @@ nav {
   display: inline-block;
 }
 
+.share-btn {
+  background: #eaf3ff;
+  color: #1e3c72;
+  border: 1px solid #b3d1ff;
+  border-radius: 4px;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.share-btn:hover {
+  background: #d0e7ff;
+}
+
 @media (max-width: 900px) {
   .basket-main {
     flex-direction: column;

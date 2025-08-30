@@ -31,7 +31,7 @@
                 <button class="basket-btn" (click)="decreaseProductInCart(item.product)"> - </button>
                 <span class="basket-qty"> {{item.quantity}} </span>
                 <button class="basket-btn" (click)="increaseProductInCart(item.product)">+</button>
-                <span> Share </span>
+                <button class="share-btn" (click)="shareProduct(item.product)"> Share <i class="fa-solid fa-share-nodes"></i> </button>
               </div>
             </div>
             <div class="basket-item-price">

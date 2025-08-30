@@ -2,6 +2,7 @@ import { Component, Inject, inject } from '@angular/core';
 import { CartService } from '../../Services/cart-service';
 import { PRODUCTS } from '../../Models/products.model';
 import { Router } from '@angular/router';
+// import { error } from 'node:console';
 
 
 
@@ -60,5 +61,16 @@ export class ShoppingBasketComponent {
   return  this.cartItem().reduce((sum, item) => sum + (item.product.price * item.quantity), 0)
  }
 
+ shareProduct(product: PRODUCTS) {
+  if (navigator.share) {
+    navigator.share({
+      title: product.title,
+      text: product.description,
+      url: window.location.origin + '/product/' + product.id
+    }).catch((error) => console.log('Error sharing', error));
+  } else {
+    alert('Sharing is not supported in this browser');
+  }
+ }
 
 }
