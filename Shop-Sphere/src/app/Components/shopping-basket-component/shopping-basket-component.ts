@@ -73,4 +73,8 @@ export class ShoppingBasketComponent {
   }
  }
 
+ checkoutPage() {
+  this.route.navigate(['/checkout'])
+ }
+
 }

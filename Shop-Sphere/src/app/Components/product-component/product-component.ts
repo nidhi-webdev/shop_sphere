@@ -3,12 +3,13 @@ import { PRODUCTS } from '../../Models/products.model';
 import { ProductService } from '../../Services/product-service';
 import { Router } from '@angular/router';
 import { CartService } from '../../Services/cart-service';
+import { NavBarComponent } from '../../shared/nav-bar-component/nav-bar-component'
 
 
 
 @Component({
   selector: 'app-product-component',
-  imports: [],
+  imports: [NavBarComponent],
   templateUrl: './product-component.html',
   styleUrl: './product-component.scss'
 })
@@ -44,10 +45,7 @@ export class ProductComponent implements OnInit {
 
   }
 
-  logOut() {
-    this.route.navigate(['/login']);
-    localStorage.removeItem('loginUser');
-  }
+  
 
   shoppingBasket() {
     this.route.navigate(['/shoppingBasket'])

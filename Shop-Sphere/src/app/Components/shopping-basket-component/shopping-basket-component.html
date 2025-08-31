@@ -46,7 +46,7 @@
     <div class="basket-summary-title">
       Subtotal ({{ subTotalItem() }} items): €{{ subTotalPrice().toFixed(2) }}
     </div>
-    <button class="checkout-btn">Proceed to Checkout</button>
+    <button class="checkout-btn" (click)="checkoutPage()">Proceed to Checkout</button>
   </div>
 </div>
 

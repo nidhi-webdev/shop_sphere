@@ -1,20 +1,19 @@
-<nav>
-    <img class="logo" src="assets/logo.png" alt="Brand logo">
-    <div class="search-input">
+
+<app-nav-bar-component 
+[userEmail] = "userEmail">
+
+</app-nav-bar-component>
+ 
+
+
+<div class="search-input">
         <input type="text" placeholder="search for Fav" #searchProduct [value]="searchItem()"
             (input)="searchItem.set(searchProduct.value)">
     </div>
-    <div class="nav-right">
-        <div class="cart-container" (click)="shoppingBasket()">
+    <div class="cart-container" (click)="shoppingBasket()">
             <i class="fa-solid fa-cart-shopping"></i>
             <span class="cart-count"> {{cartCount()}} </span>
         </div>
-        <h4>Welcome, {{userEmail}}</h4>
-        <button (click)="logOut()">Log Out</button>
-    </div>
-</nav>
-
-
 
 <div class="main-div">
     <h1> Our Collections </h1>
