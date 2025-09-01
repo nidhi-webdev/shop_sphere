@@ -1,11 +1,10 @@
 <nav class="navbar" style="background: linear-gradient(90deg, #4f8cff 0%, #1e3c72 100%);">
     <img class="logo" src="assets/logo.png" alt="Brand logo">
-    
     <div class="search-input">
         <input type="text" placeholder="search for Fav" #searchProduct [value]="searchItem()"
             (input)="searchItem.set(searchProduct.value)">
     </div>
-    
+
     <div class="nav-right">
         <h4>Welcome, {{userEmail}}</h4>
         <button (click)="logOut()">Log Out</button>
