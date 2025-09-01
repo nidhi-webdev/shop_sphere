@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, computed, Input, signal } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,24 +8,28 @@ import { Router } from '@angular/router';
   styleUrl: './nav-bar-component.scss'
 })
 export class NavBarComponent {
-@Input() 
 userEmail: string = '';
+@Input() searchItem = signal('');
+
+
 
  constructor(private route: Router) {}
 
-//  ngOnInit() {
-//      if (typeof window !== 'undefined') {
-//        const user = localStorage.getItem('loginUser');
-//        if (user) {
-//          const userObj = JSON.parse(user);
-//          this.userEmail = userObj.email || '';
-//        }
-//      }
+ ngOnInit() {
+     if (typeof window !== 'undefined') {
+       const user = localStorage.getItem('loginUser');
+       if (user) {
+         const userObj = JSON.parse(user);
+         this.userEmail = userObj.email || '';
+       }
+     }
  
-//    }
+   }
 
   logOut() {
     this.route.navigate(['/login']);
     localStorage.removeItem('loginUser');
   }
+
+  
 }

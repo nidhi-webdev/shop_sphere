@@ -13,10 +13,9 @@ import { NavBarComponent } from '../../shared/nav-bar-component/nav-bar-componen
   templateUrl: './product-component.html',
   styleUrl: './product-component.scss'
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent {
   productData: Signal<PRODUCTS[]>
-  searchItem = signal('');
-  userEmail: string = '';
+  searchItemProduct = signal('');
 
 
   constructor(private productservice: ProductService,
@@ -26,26 +25,13 @@ export class ProductComponent implements OnInit {
   }
 
   filteredProduct = computed(() => {
-    const item = this.searchItem().toLowerCase().trim();
+    const item = this.searchItemProduct().toLowerCase().trim();
     if (!item) return this.productData();
     return this.productData().filter(pro =>
       pro.category.toLowerCase().includes(item) ||
       pro.title.toLowerCase().includes(item)
     );
   });
-
-  ngOnInit() {
-    if (typeof window !== 'undefined') {
-      const user = localStorage.getItem('loginUser');
-      if (user) {
-        const userObj = JSON.parse(user);
-        this.userEmail = userObj.email || '';
-      }
-    }
-
-  }
-
-  
 
   shoppingBasket() {
     this.route.navigate(['/shoppingBasket'])

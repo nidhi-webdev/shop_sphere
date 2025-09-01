@@ -1,15 +1,15 @@
 
-<app-nav-bar-component 
-[userEmail] = "userEmail">
-
+<app-nav-bar-component [searchItem] = "searchItemProduct">
 </app-nav-bar-component>
+<!-- <nav>
+    </nav> -->
  
 
 
-<div class="search-input">
+<!-- <div class="search-input">
         <input type="text" placeholder="search for Fav" #searchProduct [value]="searchItem()"
             (input)="searchItem.set(searchProduct.value)">
-    </div>
+    </div> -->
     <div class="cart-container" (click)="shoppingBasket()">
             <i class="fa-solid fa-cart-shopping"></i>
             <span class="cart-count"> {{cartCount()}} </span>
