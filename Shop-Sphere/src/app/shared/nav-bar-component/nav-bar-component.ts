@@ -29,5 +29,9 @@ userEmail: string = '';
     localStorage.removeItem('loginUser');
   }
 
+  shoppingBasket() {
+    this.route.navigate(['/shoppingBasket'])
+  }
+
   
 }
