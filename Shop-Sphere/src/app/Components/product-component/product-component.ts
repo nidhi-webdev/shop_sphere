@@ -39,7 +39,6 @@ export class ProductComponent {
 
   sendingProductData(product: PRODUCTS) {
     this.cartservice.addToCart(product);
-    //  console.log("From the Product", this.cartservice)
   }
 
   cartCount = computed(() =>
