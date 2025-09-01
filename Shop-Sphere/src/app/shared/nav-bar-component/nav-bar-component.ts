@@ -11,8 +11,6 @@ export class NavBarComponent {
 userEmail: string = '';
 @Input() searchItem = signal('');
 
-
-
  constructor(private route: Router) {}
 
  ngOnInit() {
