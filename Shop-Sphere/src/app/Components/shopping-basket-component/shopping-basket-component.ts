@@ -21,14 +21,14 @@ export class ShoppingBasketComponent {
   userEmail: string = '';
 
   constructor() {
-  if (typeof window !== 'undefined') {
+    if (typeof window !== 'undefined') {
       const user = localStorage.getItem('loginUser');
       if (user) {
         const userObj = JSON.parse(user);
         this.userEmail = userObj.email || '';
       }
     }
- } 
+  }
 
 
   logOut() {
@@ -40,42 +40,42 @@ export class ShoppingBasketComponent {
     this.route.navigate(['/products'])
   }
 
- deteleProductFrormCart(id: number) {
-  if(id !== undefined) {
-    this.cartservice.deleteProduct(id);
+  deteleProductFrormCart(id: number) {
+    if (id !== undefined) {
+      this.cartservice.deleteProduct(id);
+    }
   }
- }
 
- increaseProductInCart(product: PRODUCTS) {
-  this.cartservice.increaseProduct(product);
- }
-
- decreaseProductInCart(product: PRODUCTS) {
-  this.cartservice.decreaseProduct(product);
- }
-
- subTotalItem() {
-  return this.cartItem().reduce((sum, item) => sum + item.quantity, 0)
- };
-
- subTotalPrice() {
-  return  this.cartItem().reduce((sum, item) => sum + (item.product.price * item.quantity), 0)
- }
-
- shareProduct(product: PRODUCTS) {
-  if (navigator.share) {
-    navigator.share({
-      title: product.title,
-      text: product.description,
-      url: window.location.origin + '/product/' + product.id
-    }).catch((error) => console.log('Error sharing', error));
-  } else {
-    alert('Sharing is not supported in this browser');
+  increaseProductInCart(product: PRODUCTS) {
+    this.cartservice.increaseProduct(product);
   }
- }
 
- checkoutPage() {
-  this.route.navigate(['/checkout'])
- }
+  decreaseProductInCart(product: PRODUCTS) {
+    this.cartservice.decreaseProduct(product);
+  }
+
+  subTotalItem() {
+    return this.cartItem().reduce((sum, item) => sum + item.quantity, 0)
+  };
+
+  subTotalPrice() {
+    return this.cartItem().reduce((sum, item) => sum + (item.product.price * item.quantity), 0)
+  }
+
+  shareProduct(product: PRODUCTS) {
+    if (navigator.share) {
+      navigator.share({
+        title: product.title,
+        text: product.description,
+        url: window.location.origin + '/product/' + product.id
+      }).catch((error) => console.log('Error sharing', error));
+    } else {
+      alert('Sharing is not supported in this browser');
+    }
+  }
+
+  checkoutPage() {
+    this.route.navigate(['/checkout'])
+  }
 
 }
