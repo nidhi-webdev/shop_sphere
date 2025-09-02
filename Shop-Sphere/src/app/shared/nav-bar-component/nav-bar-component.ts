@@ -1,5 +1,6 @@
 import { Component, computed, Input, signal } from '@angular/core';
 import { Router } from '@angular/router';
+import { CartService } from '../../Services/cart-service';
 
 @Component({
   selector: 'app-nav-bar-component',
@@ -11,7 +12,7 @@ export class NavBarComponent {
 userEmail: string = '';
 @Input() searchItem = signal('');
 
- constructor(private route: Router) {}
+ constructor(private route: Router, private cartservice: CartService) {}
 
  ngOnInit() {
      if (typeof window !== 'undefined') {
@@ -32,6 +33,11 @@ userEmail: string = '';
   shoppingBasket() {
     this.route.navigate(['/shoppingBasket'])
   }
+
+  cartCount = computed(() =>
+    this.cartservice._cartItem().reduce((sum, item) => sum + item.quantity, 0
+    )
+  );
 
   
 }

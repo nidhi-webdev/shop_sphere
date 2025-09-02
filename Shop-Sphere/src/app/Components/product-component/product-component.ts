@@ -33,17 +33,7 @@ export class ProductComponent {
     );
   });
 
-  shoppingBasket() {
-    this.route.navigate(['/shoppingBasket'])
-  }
-
   sendingProductData(product: PRODUCTS) {
     this.cartservice.addToCart(product);
   }
-
-  cartCount = computed(() =>
-    this.cartservice._cartItem().reduce((sum, item) => sum + item.quantity, 0
-    )
-  );
-
 }
