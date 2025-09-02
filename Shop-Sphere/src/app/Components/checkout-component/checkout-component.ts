@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { NavBarComponent } from '../../shared/nav-bar-component/nav-bar-component';
 
 
@@ -9,5 +9,5 @@ import { NavBarComponent } from '../../shared/nav-bar-component/nav-bar-componen
   styleUrl: './checkout-component.scss'
 })
 export class CheckoutComponent {
-
+ 
 }

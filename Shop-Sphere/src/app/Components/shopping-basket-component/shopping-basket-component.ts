@@ -2,6 +2,7 @@ import { Component, Inject, inject } from '@angular/core';
 import { CartService } from '../../Services/cart-service';
 import { PRODUCTS } from '../../Models/products.model';
 import { Router } from '@angular/router';
+import { NavBarComponent } from '../../shared/nav-bar-component/nav-bar-component';
 // import { error } from 'node:console';
 
 
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shopping-basket-component',
-  imports: [],
+  imports: [NavBarComponent],
   templateUrl: './shopping-basket-component.html',
   styleUrl: './shopping-basket-component.scss'
 })
