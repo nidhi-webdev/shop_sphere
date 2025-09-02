@@ -17,6 +17,7 @@ export class ShoppingBasketComponent {
   route = inject(Router)
   cartItem = this.cartservice._cartItem;
   userEmail: string = '';
+  // showSearch = false;
 
   constructor() {
     if (typeof window !== 'undefined') {

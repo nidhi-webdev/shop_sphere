@@ -11,6 +11,7 @@ import { CartService } from '../../Services/cart-service';
 export class NavBarComponent {
   userEmail: string = '';
   @Input() searchItem = signal('');
+  @Input() showSearch: boolean = true;
 
   constructor(private route: Router, private cartservice: CartService) { }
 
