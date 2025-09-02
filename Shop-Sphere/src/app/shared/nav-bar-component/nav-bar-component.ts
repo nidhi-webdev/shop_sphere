@@ -9,21 +9,21 @@ import { CartService } from '../../Services/cart-service';
   styleUrl: './nav-bar-component.scss'
 })
 export class NavBarComponent {
-userEmail: string = '';
-@Input() searchItem = signal('');
+  userEmail: string = '';
+  @Input() searchItem = signal('');
 
- constructor(private route: Router, private cartservice: CartService) {}
+  constructor(private route: Router, private cartservice: CartService) { }
 
- ngOnInit() {
-     if (typeof window !== 'undefined') {
-       const user = localStorage.getItem('loginUser');
-       if (user) {
-         const userObj = JSON.parse(user);
-         this.userEmail = userObj.email || '';
-       }
-     }
- 
-   }
+  ngOnInit() {
+    if (typeof window !== 'undefined') {
+      const user = localStorage.getItem('loginUser');
+      if (user) {
+        const userObj = JSON.parse(user);
+        this.userEmail = userObj.email || '';
+      }
+    }
+
+  }
 
   logOut() {
     this.route.navigate(['/login']);
@@ -39,5 +39,5 @@ userEmail: string = '';
     )
   );
 
-  
+
 }
