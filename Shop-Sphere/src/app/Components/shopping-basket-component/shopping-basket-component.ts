@@ -3,8 +3,6 @@ import { CartService } from '../../Services/cart-service';
 import { PRODUCTS } from '../../Models/products.model';
 import { Router } from '@angular/router';
 import { NavBarComponent } from '../../shared/nav-bar-component/nav-bar-component';
-// import { error } from 'node:console';
-
 
 
 
